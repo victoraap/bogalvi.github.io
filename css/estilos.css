@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Define la fuente usando @font-face */
+@font-face {
+    font-family: 'DIN Medium';
+    src: url('fonts/dinmedium.ttf') format('truetype');
+    /* Otras propiedades como font-weight y font-style si es necesario */
+}
+
+
+/* create style for class .container width 1144px center with a elegant background color minimalist  */
+.container {
+    width: 1144px;
+    margin: 0 auto;
+    background-color: #d1d1d1;
+}
+
+/* create styles for menu horizontal with heigh of 85px  <div class="menu">
+            <div class="logo">
+                <img src="img/logo.png" alt="">
+            </div>
+            <div class="btn-menu">
+                <a href="#" class="btn-menu">Menu</a>
+            </div>
+            <div class="enlaces">
+                <a href="#">Inicio</a>
+                <a href="#">Nosotros</a>
+                <a href="#">Servicios</a>
+                <a href="#">Contacto</a>
+            </div>
+</div> */
+.menu {
+    height: 85px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.95em;
+}
+
+/* create style for class .logo with a width of 200px and height of 50px */
+.logo {
+    width: 200px;
+    height: 50px;
+    display: flex;
+    align-items: center; /* Centrar verticalmente */
+}
+
+.logo img {
+    width: auto;
+    height: 80%;
+    display: block;
+    margin: 0 auto;
+}
+/* create style for class .btn-menu with a width of 30px and height of 30px */
+.btn-menu {
+    width: 30px;
+    height: 30px;
+    display: none;
+}
+
+/* create style for class .enlaces with a width of 500px and height of 85px */
+.enlaces {
+    width: 400px;
+    height: 85px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* create style for class .enlaces a with a color of #000 and text-decoration of none */
+.enlaces a {
+    color: #000;
+    text-decoration: none;
+}
+
+/* create style for class .enlaces a:hover with a color of #000 and text-decoration of none */
+.enlaces a:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+
