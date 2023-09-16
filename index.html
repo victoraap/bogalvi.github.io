@@ -1,31 +1,232 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/estilos.css">
-    <link rel="icon" href="img/favicon-32x32.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="img/favicon-16x16.png" sizes="16x16" type="image/png">
-    <title>Bogalvi</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Jost%3A300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;display=swap">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  
+    @keyframes fade-out {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+  
+    .animate-fade-in-out {
+      animation: fade-in-out 0.3s ease-in-out;
+    }
+    
+  </style>
+
+
 </head>
-<body>
-    <div class="container">
-        <div class="menu">
-            <div class="logo">
-                <img src="img/logo.png" alt="">
-            </div>
-            <div class="btn-menu">
-                <a href="#" class="btn-menu">Menu</a>
-            </div>
-            <div class="enlaces">
-                <a href="#">Inicio</a>
-                <a href="#">Nosotros</a>
-                <a href="#">Servicios</a>
-                <a href="#">Contacto</a>
-            </div>
-        </div>
+<body class="bg-gray-300">
+
+
+
+    <!-- header -->
+    <div class="conatiner bg-gray-300 w-full sticky top-0 z-50">
+      <div class="flex justify-between items-center font-semibold py-2 px-8"> <!-- header -->
+        
+        <div  class="">
+          <div  class="flex align-middle justify-center border border-none md:border-dashed border-gray-700 md:px-6 py-2 text-gray-700"><h1>BOGALVI</h1></div>
+        </div> <!-- logo -->
+
+        <div class="hidden md:block mr-8">
+          <ul class="flex space-x-6 list-none text-gray-700">
+            <a class="py-3 hover:text-blue-500" href="#">Home</a>
+            <a class="py-3 hover:text-blue-500" href="#">Catalogo</a>
+            <a class="py-3 hover:text-blue-500" href="#">Tienda</a>
+            <a class="py-3 hover:text-blue-500" href="#">Contacto</a>
+          </ul>
+        </div> <!-- nav -->
+        <div class="mr-10 md:mr-0  flex   items-center">
+
+
+          <div class="cursor-pointer px-2 py-2">
+            <i class="fa-solid fa-bag-shopping text-2xl text-gray-700"></i>
+          </div>
+
+          <button class=" cursor-pointer ml-6  hidden md:block  bg-blue-500 hover:bg-blue-600 text-white font-semibold pt-1 pb-2 px-4 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+            Login
+          </button>
+
+          
+          
+          <!--<i class="fa-brands fa-facebook-f text-xl"></i>
+          <i class="fa-brands fa-whatsapp text-2xl ml-3"></i>
+          <i class="fa-brands fa-instagram text-2xl ml-3"></i>-->
+        </div> <!-- search -->
+
+
+
+        <div class="md:hidden text-gray-700"> 
+          <button class="outline-none mobile-menu-button"><i class="fa-solid fa-bars text-[20px]"></i></div></button>
+          
+      </div>
+
+
+
+      </div>
+    </div>
+
+    
+    <!-- mobile menu -->
+    <div class="md:hidden mobile-menu fixed left-0 right-0 z-20 bg-white bg-opacity-70 transition-opacity duration-300 ease-in-out opacity-0 invisible animate-fade-in-out">
+      <a href="#" class=" hover:bg-lime-100 block py-4 px-8 text-gray-800 font-semibold hover:text-blue-500 text-center">
+        Home
+      </a>
+      <a href="#" class=" hover:bg-lime-100 block py-4 px-8 text-gray-800 font-semibold hover:text-blue-500 text-center">
+        Catalogo
+      </a>
+      <a href="#" class=" hover:bg-lime-100 block py-4 px-8 text-gray-800 font-semibold hover:text-blue-500 text-center">
+        Tienda
+      </a>
+      <a href="#" class=" hover:bg-lime-100 block py-4 px-8 text-gray-800 font-semibold hover:text-blue-500 text-center">
+        Contacto
+      </a>
+    </div>
+
+    <!-- whatsapp icon bottom https://web.whatsapp.com/send/?phone=51925717103   https://api.whatsapp.com/send?phone=51925717103 -->
+    <div class="fixed bottom-10 right-5 z-50">
+      <a href="https://api.whatsapp.com/send?phone=51925717103" target="_blank" rel="noopener noreferrer" class="bg-green-500 text-white rounded-full p-4 hover:bg-green-600 shadow-md hover:shadow-lg transition duration-300 ease-in-out">
+        <i class="fab fa-whatsapp text-2xl"></i>
+      </a>
+    </div>
+
+
+    <!-- first block of content of landing page -->
+    <!-- Primer bloque de contenido de la página de inicio -->
+<!-- Primer bloque de contenido de la página de inicio -->
+
+<div class="bg-gray-500">
+    <div class="uix relative w-full bg-gray-300 h-[560px] flex flex-col md:flex-row rounded-br-full ">
+    <!-- Columna izquierda (Imagen 1) - Visible en todas las pantallas -->
+    <div class="md:w-1/2 flex justify-center  lg:justify-end items-center">
+      <img class="h-[560px]" src="img/011.png" alt="" srcset="">
+    </div>
+
+    <!-- Columna central (Texto) - Visible en todas las pantallas -->
+    <div class="text-white md:text-gray-900 w-full md:w-1/2 z-80 absolute md:relative inset-0 md:bg-opacity-0 bg-opacity-60 bg-gray-800 md:bg-none flex flex-col justify-center items-center">
+      <p>BOGALVI</p>
+      <h3 class="text-4xl text-white md:text-gray-900 font-Jost text-gradient-animation text-center">SPORTWEAR DESIGN</h3>
+      <p class="text-white md:text-gray-900 text-md px-4 mt-4 text-center">La mejor ropa deportiva para tu estilo de vida activo.</p>
+      <button class="mt-8 bg-blue-500 hover:bg-blue-600 text-white md:text-gray-900 font-semibold py-2 px-4 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+        Ver Catálogo
+      </button>
+    </div>
+
+    <!-- Columna derecha (Imagen 2) - Visible solo en pantallas de escritorio (md y superiores) -->
+    <div class="hidden md:block md:w-1/2 ">
+      <img class="h-[560px]" src="img/04.png" alt="" srcset="">
+    </div>
+  </div>
+</div>
+
+
+
+    <!-- second block of content of landing page -->
+    <div class="w-full py-4  px-8   flex justify-center items-center">
+      <!-- title of new products-->
+      <h2 class="text-2xl font-semibold text-gray-700">Nuevos Productos</h2>
+      <!--<a href="#" class="text-blue-500 hover:text-blue-600 font-semibold">Ver todos</a>-->
+    </div>
+
+    <div class="container mx-auto p-4">
+      <h1 class="text-2xl font-semibold mb-4">Productos</h1>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <!-- Card 1 -->
+          <div class="bg-white rounded-lg shadow-lg p-4">
+              <img src="img/02.jpg" alt="Producto 1" class="w-full object-cover rounded-md mb-2">
+              <h2 class="text-lg font-semibold">Producto 1</h2>
+              <p class="text-gray-600">S/.27.00</p>
+          </div>
+    
+          <!-- Card 2 -->
+          <div class="bg-white rounded-lg shadow-lg p-4">
+              <img src="img/02.jpg" alt="Producto 2" class="w-full object-cover rounded-md mb-2">
+              <h2 class="text-lg font-semibold">Producto 2</h2>
+              <p class="text-gray-600">S/.27.00</p>
+          </div>
+    
+          <!-- Card 3 -->
+          <div class="bg-white rounded-lg shadow-lg p-4">
+              <img src="img/02.jpg" alt="Producto 3" class="w-full object-cover rounded-md mb-2">
+              <h2 class="text-lg font-semibold">Producto 3</h2>
+              <p class="text-gray-600">S/.27.00</p>
+          </div>
+    
+          <!-- Card 4 -->
+          <div class="bg-white rounded-lg shadow-lg p-4">
+              <img src="img/02.jpg" alt="Producto 4" class="w-full object-cover rounded-md mb-2">
+              <h2 class="text-lg font-semibold">Producto 4</h2>
+              <p class="text-gray-600">S/.27.00</p>
+          </div>
+      </div>
     </div>
     
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+    
+
+
+    <script>
+      const mobileMenuButton = document.querySelector(".mobile-menu-button");
+      const mobileMenu = document.querySelector(".mobile-menu");
+    
+      // Abre el menú móvil al hacer clic en el botón
+      mobileMenuButton.addEventListener("click", function () {
+        mobileMenu.classList.toggle("opacity-100");
+        mobileMenu.classList.toggle("invisible");
+      });
+
+      // Cierra el menú móvil si se hace clic fuera de él
+      document.addEventListener("click", function (event) {
+        if (!mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
+          mobileMenu.classList.remove("opacity-100");
+          mobileMenu.classList.add("invisible");
+        }
+      });
+    </script>
 </body>
-    <script src="js/script.js"></script>
 </html>
