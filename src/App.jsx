@@ -235,7 +235,7 @@ function App() {
         <section className="contact section" id="contacto">
           <div className="contact-copy" data-reveal>
             <p className="eyebrow"><span /> Atención directa</p>
-            <h2>¿Listo para elegir<br />tu próximo short?</h2>
+            <h2><span className="question-open" aria-hidden="true">¿</span><span className="sr-only">¿</span>Listo para elegir<br />tu próximo short?</h2>
             <p>Escríbenos y recibe ayuda para encontrar color, talla y cantidad.</p>
           </div>
           <div className="contact-actions" data-reveal>
