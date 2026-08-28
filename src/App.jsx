@@ -72,7 +72,7 @@ function App() {
     )
     document.querySelectorAll('[data-reveal]').forEach((element) => observer.observe(element))
     return () => observer.disconnect()
-  }, [])
+  }, [filter])
 
   useEffect(() => {
     document.body.classList.toggle('no-scroll', Boolean(selectedProduct) || menuOpen)
