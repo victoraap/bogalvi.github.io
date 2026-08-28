@@ -65,8 +65,8 @@ img { display: block; max-width: 100%; }
 .mobile-menu nav a { display: flex; align-items: baseline; justify-content: space-between; padding: 22px 0; font-size: clamp(32px, 10vw, 50px); border-bottom: 1px solid rgba(255,255,255,.16); }
 .mobile-menu nav span { color: #858991; font-size: 12px; }
 
-.hero { min-height: min(900px, 100svh); display: grid; grid-template-columns: 47% 53%; background: var(--ink); color: var(--white); overflow: hidden; }
-.hero-copy { display: flex; flex-direction: column; justify-content: center; padding: calc(var(--header-height) + 70px) clamp(28px, 6vw, 104px) 64px; }
+.hero { width: 100%; min-height: min(900px, 100svh); display: grid; grid-template-columns: 47% 53%; background: var(--ink); color: var(--white); overflow: hidden; }
+.hero-copy { width: 100%; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: calc(var(--header-height) + 70px) clamp(28px, 6vw, 104px) 64px; }
 .eyebrow { display: flex; align-items: center; gap: 12px; margin: 0 0 26px; color: #6b6f76; font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
 .hero .eyebrow { color: #b4b7be; }
 .eyebrow span { width: 28px; height: 1px; background: currentColor; }
@@ -223,9 +223,10 @@ footer { padding: 70px clamp(22px, 6vw, 104px) 28px; background: var(--ink); col
   .hero-actions { align-items: stretch; flex-direction: column; gap: 14px; }
   .hero-actions .button { width: 100%; }
   .hero-actions .text-link { align-self: flex-start; }
-  .hero-stats { gap: 18px; justify-content: space-between; margin-top: 50px; }
+  .hero-stats { width: 100%; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 50px; }
+  .hero-stats div { min-width: 0; }
   .hero-stats strong { font-size: 17px; }
-  .hero-stats span { letter-spacing: .07em; }
+  .hero-stats span { max-width: 100%; letter-spacing: .05em; line-height: 1.3; }
   .hero-visual { min-height: 680px; }
   .hero-image-wrap img { object-position: 48% 42%; }
   .hero-number { top: 34px; font-size: 82px; }
@@ -268,6 +269,8 @@ footer { padding: 70px clamp(22px, 6vw, 104px) 28px; background: var(--ink); col
 
 @media (max-width: 410px) {
   .hero-copy { min-height: 680px; }
+  .hero-stats { gap: 8px; }
+  .hero-stats span { font-size: 9px; }
   .product-grid { grid-template-columns: 1fr; }
   .product-info { grid-template-columns: 1fr auto auto; }
   .product-info strong { grid-column: auto; }
