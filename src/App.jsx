@@ -16,7 +16,6 @@ const products = [
   { name: 'Verde militar', file: 'short-verde-militar.jpg', family: 'frios', color: '#46573a', contrast: 'Ribete negro' },
   { name: 'Azulino', file: 'short-azulino.jpg', family: 'intensos', color: '#1437be', contrast: 'Ribete negro' },
   { name: 'Azul', file: 'short-azul.jpg', family: 'frios', color: '#151b2c', contrast: 'Ribete negro' },
-  { name: 'Azul noche', file: 'short-azul-noche.jpg', family: 'neutros', color: '#182a54', contrast: 'Ribete negro' },
 ]
 
 const filters = [
@@ -133,7 +132,7 @@ function App() {
               <a className="text-link" href={whatsappUrl()} target="_blank" rel="noreferrer">Consultar disponibilidad <Icon name="arrow" size={17} /></a>
             </div>
             <div className="hero-stats" aria-label="Información destacada">
-              <div><strong>13</strong><span>colores</span></div>
+              <div><strong>12</strong><span>colores</span></div>
               <div><strong>S/25</strong><span>por unidad</span></div>
               <div><strong>Mayor<br />y menor</strong><span>venta directa</span></div>
             </div>
@@ -148,7 +147,7 @@ function App() {
         </section>
 
         <div className="ticker" aria-hidden="true">
-          <div><span>Confección propia</span><b>•</b><span>Shorts de entrenamiento</span><b>•</b><span>13 colores</span><b>•</b><span>Venta mayorista y minorista</span><b>•</b><span>Confección propia</span><b>•</b><span>Shorts de entrenamiento</span></div>
+          <div><span>Confección propia</span><b>•</b><span>Shorts de entrenamiento</span><b>•</b><span>12 colores</span><b>•</b><span>Venta mayorista y minorista</span><b>•</b><span>Confección propia</span><b>•</b><span>Shorts de entrenamiento</span></div>
         </div>
 
         <section className="collection section" id="coleccion">
