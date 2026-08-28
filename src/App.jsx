@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
-const PHONE = '51925717103'
+const PHONE = '51927642044'
 const DEFAULT_MESSAGE = 'Hola Bogalvi, quiero consultar por los shorts deportivos.'
 
 const products = [
@@ -31,14 +31,24 @@ function Icon({ name, size = 20 }) {
     menu: <><path d="M4 7h16" /><path d="M4 12h16" /><path d="M4 17h16" /></>,
     close: <><path d="m6 6 12 12" /><path d="m18 6-12 12" /></>,
     check: <path d="m5 12 4 4L19 6" />,
-    whatsapp: <><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.5Z" /><path d="M9 8.5c.5 2 2 3.5 4 4l1-1 2 1c.2 1.5-.7 2.5-2 2.5-3.8-.4-6.6-3.2-7-7 0-1.3 1-2.2 2.5-2l1 2-1.5.5Z" /></>,
-    instagram: <><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none" /></>,
-    facebook: <path d="M14 8h3V4h-3c-3 0-5 2-5 5v3H6v4h3v6h4v-6h3l1-4h-4V9c0-.6.4-1 1-1Z" />,
     spark: <><path d="m12 3 1.5 5.5L19 10l-5.5 1.5L12 17l-1.5-5.5L5 10l5.5-1.5L12 3Z" /><path d="m19 16 .6 2.4L22 19l-2.4.6L19 22l-.6-2.4L16 19l2.4-.6L19 16Z" /></>,
   }
   return (
     <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       {paths[name]}
+    </svg>
+  )
+}
+
+function BrandIcon({ name, size = 22 }) {
+  const marks = {
+    whatsapp: <><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.5Z" /><path d="M9 8.5c.5 2 2 3.5 4 4l1-1 2 1c.2 1.5-.7 2.5-2 2.5-3.8-.4-6.6-3.2-7-7 0-1.3 1-2.2 2.5-2l1 2-1.5.5Z" /></>,
+    facebook: <path className="brand-fill" d="M13.8 21v-8h2.7l.45-3H13.8V8.1c0-.87.24-1.47 1.57-1.47h1.68V3.95a22 22 0 0 0-2.45-.13c-2.42 0-4.08 1.48-4.08 4.2V10H7.8v3h2.72v8h3.28Z" />,
+    instagram: <><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4.1" /><circle className="brand-fill" cx="17.5" cy="6.6" r="1" /></>,
+  }
+  return (
+    <svg className={`brand-icon brand-icon-${name}`} aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      {marks[name]}
     </svg>
   )
 }
@@ -239,9 +249,9 @@ function App() {
             <p>Escríbenos y recibe ayuda para encontrar color, talla y cantidad.</p>
           </div>
           <div className="contact-actions" data-reveal>
-            <a href={whatsappUrl()} target="_blank" rel="noreferrer"><Icon name="whatsapp" size={30} /><span><small>WhatsApp</small>+51 925 717 103</span><Icon name="arrow" size={22} /></a>
-            <a href="https://www.facebook.com/BogalviModa" target="_blank" rel="noreferrer"><Icon name="facebook" size={30} /><span><small>Facebook</small>Bogalvi Confecciones</span><Icon name="arrow" size={22} /></a>
-            <a href="https://www.instagram.com/bogalvimoda" target="_blank" rel="noreferrer"><Icon name="instagram" size={30} /><span><small>Instagram</small>@bogalvimoda</span><Icon name="arrow" size={22} /></a>
+            <a href={whatsappUrl()} target="_blank" rel="noreferrer"><span className="social-mark social-mark-whatsapp"><BrandIcon name="whatsapp" /></span><span className="contact-label"><small>WhatsApp</small>+51 927 642 044</span><Icon name="arrow" size={22} /></a>
+            <a href="https://www.facebook.com/BogalviModa" target="_blank" rel="noreferrer"><span className="social-mark"><BrandIcon name="facebook" /></span><span className="contact-label"><small>Facebook</small>Bogalvi Confecciones</span><Icon name="arrow" size={22} /></a>
+            <a href="https://www.instagram.com/bogalvimoda" target="_blank" rel="noreferrer"><span className="social-mark"><BrandIcon name="instagram" /></span><span className="contact-label"><small>Instagram</small>@bogalvimoda</span><Icon name="arrow" size={22} /></a>
           </div>
         </section>
       </main>
@@ -255,7 +265,7 @@ function App() {
         <div className="footer-bottom"><span>© {new Date().getFullYear()} Bogalvi Confecciones</span><span>Diseñado para moverte.</span></div>
       </footer>
 
-      <a className="floating-whatsapp" href={whatsappUrl()} target="_blank" rel="noreferrer" aria-label="Escribir a Bogalvi por WhatsApp"><Icon name="whatsapp" size={25} /><span>WhatsApp</span></a>
+      <a className="floating-whatsapp" href={whatsappUrl()} target="_blank" rel="noreferrer" aria-label="Escribir a Bogalvi por WhatsApp"><BrandIcon name="whatsapp" size={24} /><span>WhatsApp</span></a>
 
       {selectedProduct && (
         <div className="modal-backdrop" role="presentation" onMouseDown={(event) => event.target === event.currentTarget && setSelectedProduct(null)}>

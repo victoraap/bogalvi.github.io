@@ -169,8 +169,14 @@ img { display: block; max-width: 100%; }
 .contact-actions { border-top: 1px solid var(--line); }
 .contact-actions > a { display: grid; grid-template-columns: 42px 1fr auto; gap: 18px; align-items: center; padding: 24px 4px; border-bottom: 1px solid var(--line); transition: padding .25s ease, background .25s ease; }
 .contact-actions > a:hover { padding-left: 16px; background: rgba(255,255,255,.48); }
-.contact-actions span { display: flex; flex-direction: column; gap: 3px; font-size: 18px; }
+.contact-actions .contact-label { display: flex; flex-direction: column; gap: 3px; font-size: 18px; }
 .contact-actions small { color: var(--muted); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; }
+.social-mark { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; background: var(--ink); color: var(--white); transition: transform .25s ease, background .25s ease; }
+.social-mark-whatsapp { background: #168f48; }
+.contact-actions > a:hover .social-mark { transform: scale(1.06); background: #292c33; }
+.contact-actions > a:hover .social-mark-whatsapp { background: #117b3d; }
+.brand-icon { flex: 0 0 auto; }
+.brand-icon .brand-fill { fill: currentColor; stroke: none; }
 
 footer { padding: 70px clamp(22px, 6vw, 104px) 28px; background: var(--ink); color: var(--white); }
 .footer-top { display: grid; grid-template-columns: 1fr auto auto; gap: 80px; align-items: start; padding-bottom: 70px; }
