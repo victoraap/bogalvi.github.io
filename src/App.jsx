@@ -4,25 +4,26 @@ const PHONE = '51927642044'
 const DEFAULT_MESSAGE = 'Hola Bogalvi, quiero consultar por los shorts deportivos.'
 
 const products = [
-  { name: 'Acero', file: 'short-acero.jpg', family: 'frios', color: '#294e66', contrast: 'Ribete negro' },
-  { name: 'Amarillo neón', file: 'short-amarillo-neon.jpg', family: 'intensos', color: '#c6ee00', contrast: 'Ribete negro' },
-  { name: 'Plomo intermedio', file: 'short-plomo-intermedio.jpg', family: 'neutros', color: '#72777e', contrast: 'Ribete negro' },
-  { name: 'Plomo claro', file: 'short-plomo-claro.jpg', family: 'neutros', color: '#c8ccd0', contrast: 'Ribete negro' },
-  { name: 'Vino', file: 'short-vino.jpg', family: 'intensos', color: '#7f1728', contrast: 'Ribete negro' },
-  { name: 'Negro', file: 'short-negro.jpg', family: 'neutros', color: '#111214', contrast: 'Ribete vino' },
-  { name: 'Cobalto', file: 'short-cobalto.jpg', family: 'frios', color: '#125276', contrast: 'Ribete negro' },
-  { name: 'Blanco', file: 'short-blanco.jpg', family: 'neutros', color: '#f0f0ed', contrast: 'Ribete negro' },
-  { name: 'Jade', file: 'short-jade.jpg', family: 'frios', color: '#00a398', contrast: 'Ribete negro' },
-  { name: 'Verde militar', file: 'short-verde-militar.jpg', family: 'frios', color: '#46573a', contrast: 'Ribete negro' },
-  { name: 'Azulino', file: 'short-azulino.jpg', family: 'intensos', color: '#1437be', contrast: 'Ribete negro' },
-  { name: 'Azul', file: 'short-azul.jpg', family: 'frios', color: '#151b2c', contrast: 'Ribete negro' },
+  { id: 'acero-negra', name: 'Acero', file: 'short-acero-cinta-negra.webp', tape: 'negra', color: '#273b72' },
+  { id: 'acero-blanca', name: 'Acero', file: 'short-acero-cinta-blanca.webp', tape: 'blanca', color: '#273b72' },
+  { id: 'cobalto-negra', name: 'Cobalto', file: 'short-cobalto-cinta-negra.webp', tape: 'negra', color: '#1d2fa3' },
+  { id: 'cobalto-blanca', name: 'Cobalto', file: 'short-cobalto-cinta-blanca.webp', tape: 'blanca', color: '#1d2fa3' },
+  { id: 'guinda-negra', name: 'Guinda', file: 'short-guinda-cinta-negra.webp', tape: 'negra', color: '#702738' },
+  { id: 'guinda-blanca', name: 'Guinda', file: 'short-guinda-cinta-blanca.webp', tape: 'blanca', color: '#702738' },
+  { id: 'negro-negra', name: 'Negro', file: 'short-negro-cinta-negra.webp', tape: 'negra', color: '#111214' },
+  { id: 'negro-blanca', name: 'Negro', file: 'short-negro-cinta-blanca.webp', tape: 'blanca', color: '#111214' },
+  { id: 'plomo-claro-negra', name: 'Plomo claro', file: 'short-plomo-claro-cinta-negra.webp', tape: 'negra', color: '#aeb2b5' },
+  { id: 'plomo-claro-blanca', name: 'Plomo claro', file: 'short-plomo-claro-cinta-blanca.webp', tape: 'blanca', color: '#aeb2b5' },
+  { id: 'plomo-oscuro-negra', name: 'Plomo oscuro', file: 'short-plomo-oscuro-cinta-negra.webp', tape: 'negra', color: '#555a60' },
+  { id: 'plomo-oscuro-blanca', name: 'Plomo oscuro', file: 'short-plomo-oscuro-cinta-blanca.webp', tape: 'blanca', color: '#555a60' },
+  { id: 'verde-militar-negra', name: 'Verde militar', file: 'short-verde-militar-cinta-negra.webp', tape: 'negra', color: '#46513b' },
+  { id: 'verde-militar-blanca', name: 'Verde militar', file: 'short-verde-militar-cinta-blanca.webp', tape: 'blanca', color: '#46513b' },
 ]
 
 const filters = [
-  { id: 'todos', label: 'Todos' },
-  { id: 'neutros', label: 'Neutros' },
-  { id: 'frios', label: 'Tonos fríos' },
-  { id: 'intensos', label: 'Intensos' },
+  { id: 'todas', label: 'Todas' },
+  { id: 'negra', label: 'Cinta negra' },
+  { id: 'blanca', label: 'Cinta blanca' },
 ]
 
 function Icon({ name, size = 20 }) {
@@ -59,12 +60,12 @@ function whatsappUrl(message = DEFAULT_MESSAGE) {
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [filter, setFilter] = useState('todos')
+  const [filter, setFilter] = useState('todas')
   const [selectedProduct, setSelectedProduct] = useState(null)
   const [headerCompact, setHeaderCompact] = useState(false)
 
   const visibleProducts = useMemo(
-    () => (filter === 'todos' ? products : products.filter((product) => product.family === filter)),
+    () => (filter === 'todas' ? products : products.filter((product) => product.tape === filter)),
     [filter],
   )
 
@@ -142,14 +143,14 @@ function App() {
               <a className="text-link" href={whatsappUrl()} target="_blank" rel="noreferrer">Consultar disponibilidad <Icon name="arrow" size={17} /></a>
             </div>
             <div className="hero-stats" aria-label="Información destacada">
-              <div><strong>12</strong><span>colores</span></div>
+              <div><strong>7</strong><span>colores</span></div>
+              <div><strong>2</strong><span>colores de cinta</span></div>
               <div><strong>S/25</strong><span>por unidad</span></div>
-              <div><strong>Mayor<br />y menor</strong><span>venta directa</span></div>
             </div>
           </div>
           <div className="hero-visual" aria-label="Modelo vistiendo un short deportivo Bogalvi">
             <div className="hero-image-wrap">
-              <img src="/images/hero-bogalvi.jpg" alt="Short deportivo Bogalvi azul en uso" width="1874" height="2048" fetchPriority="high" />
+              <img src="/images/hero-bogalvi.webp" alt="Modelo y colección de shorts deportivos Bogalvi" width="1874" height="2048" fetchPriority="high" />
             </div>
             <div className="hero-badge"><Icon name="spark" size={22} /><span>Diseñado para<br /><strong>cada movimiento</strong></span></div>
             <div className="hero-number" aria-hidden="true">01</div>
@@ -157,37 +158,37 @@ function App() {
         </section>
 
         <div className="ticker" aria-hidden="true">
-          <div><span>Confección propia</span><b>•</b><span>Shorts de entrenamiento</span><b>•</b><span>12 colores</span><b>•</b><span>Venta mayorista y minorista</span><b>•</b><span>Confección propia</span><b>•</b><span>Shorts de entrenamiento</span></div>
+          <div><span>Confección propia</span><b>•</b><span>Shorts de entrenamiento</span><b>•</b><span>14 combinaciones</span><b>•</b><span>Cinta negra o blanca</span><b>•</b><span>Venta mayorista y minorista</span><b>•</b><span>Confección propia</span><b>•</b><span>Shorts de entrenamiento</span><b>•</b><span>14 combinaciones</span><b>•</b><span>Cinta negra o blanca</span><b>•</b><span>Venta mayorista y minorista</span></div>
         </div>
 
         <section className="collection section" id="coleccion">
           <div className="section-heading" data-reveal>
             <div>
               <p className="eyebrow"><span /> La colección</p>
-              <h2>Un color para<br />cada ritmo.</h2>
+              <h2>Un diseño para<br />cada ritmo.</h2>
             </div>
-            <p>Del entrenamiento diario a tus sesiones más intensas. Elige el tono que va contigo y consulta tallas disponibles por WhatsApp.</p>
+            <p>Elige entre siete colores y combínalos con cinta negra o blanca. Consulta tallas disponibles directamente por WhatsApp.</p>
           </div>
 
-          <div className="filter-row" role="group" aria-label="Filtrar colores" data-reveal>
+          <div className="filter-row" role="group" aria-label="Filtrar por color de cinta" data-reveal>
             {filters.map((item) => (
               <button key={item.id} type="button" className={filter === item.id ? 'is-active' : ''} aria-pressed={filter === item.id} onClick={() => setFilter(item.id)}>
                 {item.label}
               </button>
             ))}
-            <span className="result-count" aria-live="polite">{visibleProducts.length} colores</span>
+            <span className="result-count" aria-live="polite">{visibleProducts.length} opciones</span>
           </div>
 
           <div className="product-grid">
             {visibleProducts.map((product, index) => (
-              <article className="product-card" key={product.name} data-reveal style={{ '--delay': `${(index % 4) * 55}ms` }}>
-                <button type="button" className="product-image" onClick={() => setSelectedProduct(product)} aria-label={`Ver short color ${product.name}`}>
-                  <img src={`/images/${product.file}`} alt={`Short deportivo Bogalvi color ${product.name}`} width="2048" height="2048" loading="lazy" decoding="async" />
+              <article className="product-card" key={product.id} data-reveal style={{ '--delay': `${(index % 4) * 55}ms` }}>
+                <button type="button" className="product-image" onClick={() => setSelectedProduct(product)} aria-label={`Ver short ${product.name} con cinta ${product.tape}`}>
+                  <img src={`/images/${product.file}`} alt={`Short deportivo Bogalvi ${product.name} con cinta ${product.tape}`} width="1600" height="1600" loading="lazy" decoding="async" />
                   <span className="product-view">Vista rápida <Icon name="arrow" size={16} /></span>
                 </button>
                 <div className="product-info">
                   <div>
-                    <p>Short deportivo</p>
+                    <p>Short Loop · cinta {product.tape}</p>
                     <h3>{product.name}</h3>
                   </div>
                   <div className="color-dot" style={{ '--swatch': product.color }} title={product.name} />
@@ -200,7 +201,7 @@ function App() {
 
         <section className="design-section section" id="diseno">
           <div className="design-image" data-reveal>
-            <img src="/images/lifestyle-bogalvi.jpg" alt="Short Bogalvi negro con ribete contrastado" width="1877" height="2048" loading="lazy" decoding="async" />
+            <img src="/images/lifestyle-bogalvi.jpg" alt="Short Bogalvi negro con cinta contrastada" width="1877" height="2048" loading="lazy" decoding="async" />
             <span className="vertical-copy">BOGALVI SPORTSWEAR DESIGN</span>
           </div>
           <div className="design-copy" data-reveal>
@@ -271,13 +272,13 @@ function App() {
         <div className="modal-backdrop" role="presentation" onMouseDown={(event) => event.target === event.currentTarget && setSelectedProduct(null)}>
           <div className="product-modal" role="dialog" aria-modal="true" aria-labelledby="product-modal-title">
             <button className="modal-close" type="button" aria-label="Cerrar vista rápida" onClick={() => setSelectedProduct(null)}><Icon name="close" size={25} /></button>
-            <div className="modal-image"><img src={`/images/${selectedProduct.file}`} alt={`Short deportivo Bogalvi color ${selectedProduct.name}`} /></div>
+            <div className="modal-image"><img src={`/images/${selectedProduct.file}`} alt={`Short deportivo Bogalvi ${selectedProduct.name} con cinta ${selectedProduct.tape}`} /></div>
             <div className="modal-copy">
-              <p className="eyebrow"><span /> Short deportivo</p>
+              <p className="eyebrow"><span /> Short Loop · cinta {selectedProduct.tape}</p>
               <h2 id="product-modal-title">{selectedProduct.name}</h2>
               <p className="modal-price">S/25 <span>por unidad</span></p>
-              <ul><li><Icon name="check" size={18} /> Cintura elástica</li><li><Icon name="check" size={18} /> Cordón regulable</li><li><Icon name="check" size={18} /> {selectedProduct.contrast}</li></ul>
-              <a className="button button-accent" href={whatsappUrl(`Hola Bogalvi, quiero consultar el short color ${selectedProduct.name}.`)} target="_blank" rel="noreferrer">Consultar este color <Icon name="arrow" size={19} /></a>
+              <ul><li><Icon name="check" size={18} /> Cintura elástica</li><li><Icon name="check" size={18} /> Cordón regulable</li><li><Icon name="check" size={18} /> Cinta {selectedProduct.tape} contrastada</li></ul>
+              <a className="button button-accent" href={whatsappUrl(`Hola Bogalvi, quiero consultar el short ${selectedProduct.name} con cinta ${selectedProduct.tape}.`)} target="_blank" rel="noreferrer">Consultar este diseño <Icon name="arrow" size={19} /></a>
               <small>Pregunta por tallas y stock disponibles.</small>
             </div>
           </div>
